@@ -1589,6 +1589,7 @@ __metadata:
     prettier: "npm:^2.8.4"
     split-lines: "npm:^2"
     txm: "npm:^8.1.0"
+    typanion: "npm:^3.12.1"
     typescript: "npm:^4.9.5"
   languageName: unknown
   linkType: soft
@@ -3588,6 +3589,13 @@ __metadata:
   bin:
     txm: src/cli.js
   checksum: b54b56852b082e535fd048dd4c635b2dfb1771093c95e7804ce6a032f5910c9b2a7f012909c57d898e5fb3e12b59794dc32709ebd0a626def5336b7931def7d0
+  languageName: node
+  linkType: hard
+
+"typanion@npm:^3.12.1":
+  version: 3.12.1
+  resolution: "typanion@npm:3.12.1"
+  checksum: 492540c6ac09c20b1693dd4ca4278f95d3771892c551aad26844faec0bbbdafc28c72b0c0df60ac68252b1fade7e0e664df517d6f0be702c32929368814373c2
   languageName: node
   linkType: hard
 
