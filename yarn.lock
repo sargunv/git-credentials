@@ -1586,7 +1586,6 @@ __metadata:
     execa: "npm:^5.1.1"
     ignore-sync: "npm:^6.0.2"
     prettier: "npm:^2.8.4"
-    split-lines: "npm:^2.1.0"
     txm: "npm:^8.1.0"
     typanion: "npm:^3.12.1"
     typescript: "npm:^4.9.5"
@@ -3360,13 +3359,6 @@ __metadata:
   version: 3.0.12
   resolution: "spdx-license-ids@npm:3.0.12"
   checksum: ae530f822c0bee62425fb4512ac12d903c247baaaed07f3ea9ff31b5416dff23e2f60314876bd8a1381866790beabe171fc23a4b23043af6c6dedd64108a5b8c
-  languageName: node
-  linkType: hard
-
-"split-lines@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "split-lines@npm:2.1.0"
-  checksum: 7e4de7cad54ecdc73a224ea2dd230cea528c35b45544454ed8cf15f56f41a6450315d3348e90fe5a2d0ff3f6fd4ba9d72e46155e410e353bcf834470def244ea
   languageName: node
   linkType: hard
 

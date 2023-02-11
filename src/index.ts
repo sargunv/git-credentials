@@ -1,7 +1,6 @@
 import { Readable } from "node:stream"
 
 import execa from "execa"
-import splitLines from "split-lines"
 import * as t from "typanion"
 
 const runGitCredentialCommand = async (
@@ -29,12 +28,15 @@ const runGitCredentialCommand = async (
   const { stdout } = await execPromise
 
   return Object.fromEntries(
-    splitLines(stdout).reduce((acc, line) => {
-      // use a regex with a capturing group to ensure a single split
-      // in case there's an = in the value
-      const [key, value] = line.split(/=(.*)/s)
-      return acc.set(key, value)
-    }, new Map<string, string>()),
+    stdout
+      .split(/\r?\n/)
+      .filter(Boolean)
+      .reduce((acc, line) => {
+        // use a regex with a capturing group to ensure a single split
+        // in case there's an = in the value
+        const [key, value] = line.split(/=(.*)/s)
+        return acc.set(key, value)
+      }, new Map<string, string>()),
   )
 }
 
