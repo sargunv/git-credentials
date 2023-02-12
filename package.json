@@ -29,6 +29,7 @@
     },
     "extends": [
       "@sargunv/eslint-config",
+      "@sargunv/eslint-config/mixins/commonjs",
       "@sargunv/eslint-config/mixins/typescript"
     ],
     "rules": {
@@ -44,7 +45,7 @@
     "typanion": "^3.12.1"
   },
   "devDependencies": {
-    "@sargunv/eslint-config": "^0.4.1",
+    "@sargunv/eslint-config": "^0.5.1",
     "@sargunv/prettier-config": "^0.2.2",
     "@sargunv/typescript-config": "^0.1.0",
     "@types/node": "^18.13.0",
