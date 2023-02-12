@@ -20,13 +20,15 @@ export const isGitCredential = t.isObject({
 
 export type GitCredential = t.InferType<typeof isGitCredential>
 
-export const isGitCredentialFillInput = t.isObject({
-  protocol: isGitCredentialValue,
-  host: isGitCredentialValue,
-  path: t.isOptional(isGitCredentialValue),
-  username: t.isOptional(isGitCredentialValue),
-  // no password
-})
+export const isGitCredentialFillInput = t.isOneOf([
+  t.isObject({
+    protocol: isGitCredentialValue,
+    host: isGitCredentialValue,
+    path: t.isOptional(isGitCredentialValue),
+    username: t.isOptional(isGitCredentialValue),
+  }),
+  t.isObject({ url: isGitCredentialValue }),
+])
 
 export type GitCredentialFillInput = t.InferType<
   typeof isGitCredentialFillInput

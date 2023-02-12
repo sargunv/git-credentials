@@ -31,6 +31,15 @@ gitCredentialFill(
 ).then((result) => {
   console.log(result)
 })
+
+// alternative input format
+
+gitCredentialFill(
+  { url: "https://example-username@github.com/example/repo.git" },
+  { askpass: "true" },
+).then((result) => {
+  console.log(result)
+})
 ```
 
 The above examples will output:
