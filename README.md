@@ -2,7 +2,14 @@
 
 # git-credentials
 
-Library to access the git credential api. Wraps the `git credential` command.
+Library to access the git credential API by wrapping the `git credential`
+command.
+
+One common use case is to automagically extract the user's saved GitHub token to
+use in a tool that interacts with the GitHub API.
+
+Requires `git` to be installed and available in the `PATH`.
+
 For more details, read the
 [git credential documentation](https://git-scm.com/docs/git-credential).
 
@@ -50,7 +57,7 @@ The above examples will return:
 
 <!-- !test check approve -->
 
-```ts
+```mjs
 import { gitCredentialApprove } from "git-credentials"
 
 await gitCredentialApprove({
@@ -66,7 +73,7 @@ await gitCredentialApprove({
 
 <!-- !test check reject -->
 
-```ts
+```mjs
 import { gitCredentialReject } from "git-credentials"
 
 await gitCredentialReject({
