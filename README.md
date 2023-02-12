@@ -10,6 +10,8 @@ For more details, read the
 
 <!-- !test program yarn dlx -q ts-node -I '.*' -->
 
+### `git credential fill`
+
 <!-- !test check fill -->
 
 ```ts
@@ -42,6 +44,8 @@ The above examples will output:
 }
 ```
 
+### `git credential approve`
+
 <!-- !test check approve -->
 
 ```ts
@@ -57,6 +61,8 @@ gitCredentialApprove({
   console.log(`Approved`)
 })
 ```
+
+### `git credential reject`
 
 <!-- !test check reject -->
 
