@@ -10,7 +10,7 @@ For more details, read the
 
 <!-- !test program yarn dlx -q ts-node -I '.*' -->
 
-### `git credential fill`
+### git credential fill
 
 <!-- !test check fill -->
 
@@ -53,7 +53,7 @@ The above examples will output:
 }
 ```
 
-### `git credential approve`
+### git credential approve
 
 <!-- !test check approve -->
 
@@ -71,7 +71,7 @@ gitCredentialApprove({
 })
 ```
 
-### `git credential reject`
+### git credential reject
 
 <!-- !test check reject -->
 
