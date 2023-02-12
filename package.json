@@ -1,6 +1,6 @@
 {
   "name": "git-credentials",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Access the the git credential api",
   "homepage": "https://github.com/sargunv/git-credentials",
   "repository": "github:sargunv/git-credentials",
