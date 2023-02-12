@@ -8,7 +8,7 @@ For more details, read the
 
 ## Usage
 
-<!-- !test program yarn dlx -q ts-node -I '.*' -->
+<!-- !test program node --input-type=module -->
 
 ### git credential fill
 
@@ -17,32 +17,25 @@ For more details, read the
 ```ts
 import { gitCredentialFill } from "git-credentials"
 
-gitCredentialFill(
+await gitCredentialFill(
   {
     protocol: "https",
     host: "github.com",
     path: "example/repo.git", // optional
     username: "example-username", // optional
   },
-  {
-    // optional, sets GIT_ASKPASS
-    askpass: "true",
-  },
-).then((result) => {
-  console.log(result)
-})
+  { askpass: "true" }, // optional, sets GIT_ASKPASS
+)
 
 // alternative input format
 
-gitCredentialFill(
+await gitCredentialFill(
   { url: "https://example-username@github.com/example/repo.git" },
   { askpass: "true" },
-).then((result) => {
-  console.log(result)
-})
+)
 ```
 
-The above examples will output:
+The above examples will return:
 
 ```js
 {
@@ -60,14 +53,12 @@ The above examples will output:
 ```ts
 import { gitCredentialApprove } from "git-credentials"
 
-gitCredentialApprove({
+await gitCredentialApprove({
   protocol: "https",
   host: "github.com",
   path: "example/repo.git", // optional
   username: "example-username",
   password: "example-password",
-}).then(() => {
-  console.log(`Approved`)
 })
 ```
 
@@ -78,13 +69,11 @@ gitCredentialApprove({
 ```ts
 import { gitCredentialReject } from "git-credentials"
 
-gitCredentialReject({
+await gitCredentialReject({
   protocol: "https",
   host: "github.com",
   path: "example/repo.git", // optional
   username: "example-username",
   password: "example-password",
-}).then(() => {
-  console.log(`Rejected`)
 })
 ```

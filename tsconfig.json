@@ -1,6 +1,8 @@
 {
   "extends": "@sargunv/typescript-config/node",
   "compilerOptions": {
-    "outDir": "out"
+    "noEmit": true,
+    "module": "node16",
+    "moduleResolution": "node16"
   }
 }

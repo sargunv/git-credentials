@@ -5,9 +5,9 @@
   "homepage": "https://github.com/sargunv/git-credentials",
   "repository": "github:sargunv/git-credentials",
   "license": "Apache-2.0",
-  "type": "commonjs",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "./dist/*"
   ],
@@ -24,19 +24,9 @@
   },
   "prettier": "@sargunv/prettier-config",
   "eslintConfig": {
-    "parserOptions": {
-      "tsconfigRootDir": "."
-    },
     "extends": [
       "@sargunv/eslint-config",
-      "@sargunv/eslint-config/mixins/commonjs",
       "@sargunv/eslint-config/mixins/typescript"
-    ],
-    "rules": {
-      "unicorn/no-array-reduce": "off"
-    },
-    "ignorePatterns": [
-      "dist/"
     ],
     "root": true
   },
