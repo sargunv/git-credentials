@@ -30,12 +30,15 @@ afterEach(async (context) => {
   await rm(context.cwd, { recursive: true })
 })
 
-describe(`git credential fill`, () => {
+describe(`with separate input fields`, () => {
   it(`should fill a credential object with empty password when none is stored`, async ({
     cwd,
   }) => {
     const credential = await gitCredentialFill(
-      { url: `https://example.com` },
+      {
+        protocol: `https`,
+        host: `example.com`,
+      },
       { cwd },
     )
 
@@ -61,7 +64,10 @@ describe(`git credential fill`, () => {
     )
 
     const credential = await gitCredentialFill(
-      { url: `https://example.com` },
+      {
+        protocol: `https`,
+        host: `example.com`,
+      },
       { cwd },
     )
 
@@ -91,6 +97,83 @@ describe(`git credential fill`, () => {
         protocol: `https`,
         host: `example.com`,
         username: `user`,
+        password: `pass`,
+      },
+      { cwd },
+    )
+
+    const credential = await gitCredentialFill(
+      {
+        protocol: `https`,
+        host: `example.com`,
+      },
+      { cwd },
+    )
+
+    expect(credential).toEqual({
+      protocol: `https`,
+      host: `example.com`,
+      username: ``,
+      password: ``,
+    })
+  })
+})
+
+describe(`with a url input field`, () => {
+  it(`should fill a credential object with empty password when none is stored`, async ({
+    cwd,
+  }) => {
+    const credential = await gitCredentialFill(
+      { url: `https://example.com` },
+      { cwd },
+    )
+
+    expect(credential).toEqual({
+      protocol: `https`,
+      host: `example.com`,
+      username: ``,
+      password: ``,
+    })
+  })
+
+  it(`should fill a credential object with password when one is approved`, async ({
+    cwd,
+  }) => {
+    await gitCredentialApprove(
+      {
+        url: `https://user@example.com`,
+        password: `pass`,
+      },
+      { cwd },
+    )
+
+    const credential = await gitCredentialFill(
+      { url: `https://example.com` },
+      { cwd },
+    )
+
+    expect(credential).toEqual({
+      protocol: `https`,
+      host: `example.com`,
+      username: `user`,
+      password: `pass`,
+    })
+  })
+
+  it(`should fill a credential object with empty password when one is approved and then rejected`, async ({
+    cwd,
+  }) => {
+    await gitCredentialApprove(
+      {
+        url: `https://user@example.com`,
+        password: `pass`,
+      },
+      { cwd },
+    )
+
+    await gitCredentialReject(
+      {
+        url: `https://user@example.com`,
         password: `pass`,
       },
       { cwd },

@@ -6,13 +6,19 @@ import * as t from "typanion"
 
 import {
   GitCredential,
+  GitCredentialApproveRejectInput,
   GitCredentialFillInput,
   isGitCredential,
+  isGitCredentialApproveRejectInput,
   isGitCredentialFillInput,
   isGitCredentialValue,
 } from "./model.js"
 
-export type { GitCredential, GitCredentialFillInput } from "./model.js"
+export type {
+  GitCredential,
+  GitCredentialApproveRejectInput,
+  GitCredentialFillInput,
+} from "./model.js"
 
 export const gitCredentialFill = async (
   input: GitCredentialFillInput,
@@ -27,18 +33,18 @@ export const gitCredentialFill = async (
 }
 
 export const gitCredentialApprove = async (
-  input: GitCredential,
+  input: GitCredentialApproveRejectInput,
   options: { cwd?: string } = {},
 ): Promise<void> => {
-  t.assertWithErrors(input, isGitCredential)
+  t.assertWithErrors(input, isGitCredentialApproveRejectInput)
   await gitCredential(`approve`, input, options)
 }
 
 export const gitCredentialReject = async (
-  input: GitCredential,
+  input: GitCredentialApproveRejectInput,
   options: { cwd?: string } = {},
 ): Promise<void> => {
-  t.assertWithErrors(input, isGitCredential)
+  t.assertWithErrors(input, isGitCredentialApproveRejectInput)
   await gitCredential(`reject`, input, options)
 }
 
