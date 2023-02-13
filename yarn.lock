@@ -332,9 +332,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sargunv/eslint-config@github:sargunv/eslint-config":
-  version: 0.5.1
-  resolution: "@sargunv/eslint-config@https://github.com/sargunv/eslint-config.git#commit=ceab9c1ef1a62b62db0f744759f47e816b59e30a"
+"@sargunv/eslint-config@npm:^0.5.2":
+  version: 0.5.2
+  resolution: "@sargunv/eslint-config@npm:0.5.2"
   dependencies:
     "@next/eslint-plugin-next": "npm:^13.1.6"
     "@rushstack/eslint-patch": "npm:^1.2.0"
@@ -365,7 +365,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 5299dad6d1ad68d7a9becc3aa8b58528f353a095a8f451dfe4d868a94676db042daa346dda03d0efa01f771ade9dd554ac11609fc92e712b8d48b1eea1d84513
+  checksum: 48bf7ca0795055b46cf3fc5af654f60cee73e358fc3105aa7674df19c2a57b8b9b0034105f43d9b3ae293ea29b9af0136fb309acd823061b739d50d1d9bb9d35
   languageName: node
   linkType: hard
 
@@ -2223,7 +2223,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "git-credentials@workspace:."
   dependencies:
-    "@sargunv/eslint-config": "github:sargunv/eslint-config"
+    "@sargunv/eslint-config": "npm:^0.5.2"
     "@sargunv/prettier-config": "npm:^0.2.2"
     "@sargunv/typescript-config": "npm:^0.1.0"
     "@types/node": "npm:^18.13.0"
