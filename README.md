@@ -36,7 +36,10 @@ await gitCredentialFill(
     path: "example/repo.git", // optional
     username: "example-username", // optional
   },
-  { askpass: "true" }, // optional, sets GIT_ASKPASS
+  {
+    // optional but recommended, sets GIT_ASKPASS to a no-op command
+    askpass: "true",
+  },
 )
 
 // alternative input format

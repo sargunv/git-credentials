@@ -22,13 +22,26 @@ export type {
 
 export const gitCredentialFill = async (
   input: GitCredentialFillInput,
-  options: { askpass?: string; cwd?: string } = {},
+  options: {
+    cwd?: string
+    askpass?: string
+    terminalPrompt?: "disable" | "enable" | "inherit"
+  } = {},
 ): Promise<GitCredential> => {
   t.assertWithErrors(input, isGitCredentialFillInput)
+
+  const env: Record<string, string> = {}
+
+  if (options.askpass) env.GIT_ASKPASS = options.askpass
+  if (!options.terminalPrompt) env.GIT_TERMINAL_PROMPT = `0`
+  if (options.terminalPrompt === `disable`) env.GIT_TERMINAL_PROMPT = `0`
+  if (options.terminalPrompt === `enable`) env.GIT_TERMINAL_PROMPT = `1`
+
   const result = await gitCredential(`fill`, input, {
-    env: options.askpass ? { GIT_ASKPASS: options.askpass } : undefined,
+    env,
     cwd: options.cwd,
   })
+
   return t.as(result, isGitCredential, { errors: true, throw: true })
 }
 
