@@ -1,7 +1,7 @@
 import { EOL } from "node:os"
 import { Readable } from "node:stream"
 
-import execa, { CommonOptions } from "execa"
+import { CommonOptions, execa } from "execa"
 import * as t from "typanion"
 
 import {
