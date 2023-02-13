@@ -1,7 +1,6 @@
 [![NPM](https://img.shields.io/npm/v/git-credentials)](https://www.npmjs.com/package/git-credentials)
 [![CI](https://img.shields.io/github/actions/workflow/status/sargunv/git-credentials/ci.yml)](https://github.com/sargunv/git-credentials/actions/workflows/ci.yml)
-![License](https://img.shields.io/npm/l/git-credentials)
-![Dependencies](https://img.shields.io/librariesio/release/npm/git-credentials)
+[![Codecov](https://img.shields.io/codecov/c/github/sargunv/git-credentials?token=WEHUGPYIIX)![License](https://img.shields.io/npm/l/git-credentials)](https://app.codecov.io/gh/sargunv/git-credentials/)
 ![Node](https://img.shields.io/node/v/git-credentials)
 ![ESM](https://img.shields.io/badge/module%20type-esm-brightgreen)
 

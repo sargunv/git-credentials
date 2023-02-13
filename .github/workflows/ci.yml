@@ -25,3 +25,5 @@ jobs:
       - run: yarn configure && git diff --exit-code
       - run: yarn prepublish
       - run: yarn prepack
+      - uses: codecov/codecov-action@v3
+        if: matrix.node-version == '18.x'
