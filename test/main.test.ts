@@ -57,7 +57,7 @@ describe.each([
   {
     name: `a url field`,
     withoutUsername: { url: `https://example.com` },
-    withUsername: { url: `https://example-username@example.com` },
+    withUsername: { url: `https://user@example.com` },
   },
 ])(`with input as: $name`, ({ withUsername, withoutUsername }) => {
   it(`should throw when terminal prompt is disabled, no password is saved, and no askpass is set`, async ({
