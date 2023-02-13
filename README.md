@@ -7,7 +7,7 @@
 
 # git-credentials
 
-Library to access the git credential API by wrapping the `git credential`
+Library to interact with the git credential API by wrapping the `git credential`
 command.
 
 One common use case is to automagically extract the user's saved GitHub token to
@@ -38,19 +38,13 @@ await gitCredentialFill(
   },
   {
     // optional but recommended, sets GIT_ASKPASS to a no-op command
+    // untested on Windows 🤷
     askpass: "true",
   },
 )
-
-// alternative input format
-
-await gitCredentialFill(
-  { url: "https://example-username@github.com/example/repo.git" },
-  { askpass: "true" },
-)
 ```
 
-The above examples will return:
+The above example will return:
 
 ```js
 {
