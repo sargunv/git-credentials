@@ -2,8 +2,8 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/sargunv/git-credentials/ci.yml)](https://github.com/sargunv/git-credentials/actions/workflows/ci.yml)
 [![Codecov](https://img.shields.io/codecov/c/github/sargunv/git-credentials?token=WEHUGPYIIX)](https://app.codecov.io/gh/sargunv/git-credentials/)
 [![License](https://img.shields.io/npm/l/git-credentials)](LICENSE)
-[![Node](https://img.shields.io/node/v/git-credentials)](package.json)
-[![ESM](https://img.shields.io/badge/module%20type-esm-brightgreen)](package.json)
+[![Node](https://img.shields.io/node/v/git-credentials)](https://github.com/sargunv/git-credentials/blob/main/package.json)
+[![ESM](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/sargunv/git-credentials/blob/main/package.json)
 
 # git-credentials
 
