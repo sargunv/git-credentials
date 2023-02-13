@@ -6,13 +6,18 @@
   "repository": "github:sargunv/git-credentials",
   "license": "Apache-2.0",
   "type": "module",
-  "exports": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "files": [
     "./dist/*"
   ],
   "scripts": {
     "build": "tsc -p tsconfig-build.json",
+    "clean": "rm -rf dist coverage *.tsbuildinfo",
     "configure": "yarn dlx @yarnpkg/sdks vscode && ignore-sync .",
     "fix": "eslint . --fix && prettier --write .",
     "lint": "eslint . && prettier --check . --loglevel warn",
@@ -48,7 +53,7 @@
     "vite": "^4.1.1",
     "vitest": "^0.28.4"
   },
-  "packageManager": "yarn@4.0.0-rc.38",
+  "packageManager": "yarn@4.0.0-rc.39",
   "engines": {
     "node": ">=16.0.0"
   },
