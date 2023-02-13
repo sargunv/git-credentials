@@ -19,7 +19,7 @@
     "manual-test": "node manual-test.js",
     "prepack": "run build && run test-docs",
     "prepublish": "run lint && run test",
-    "test": "true",
+    "test": "vitest --run && vitest typecheck --run",
     "test-docs": "txm README.md"
   },
   "prettier": "@sargunv/prettier-config",
@@ -35,15 +35,18 @@
     "typanion": "^3.12.1"
   },
   "devDependencies": {
-    "@sargunv/eslint-config": "^0.5.1",
+    "@sargunv/eslint-config": "github:sargunv/eslint-config",
     "@sargunv/prettier-config": "^0.2.2",
     "@sargunv/typescript-config": "^0.1.0",
     "@types/node": "^18.13.0",
     "eslint": "^8.34.0",
     "ignore-sync": "^6.0.2",
     "prettier": "^2.8.4",
+    "tempy": "^3.0.0",
     "txm": "^8.1.0",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vite": "^4.1.1",
+    "vitest": "^0.28.4"
   },
   "packageManager": "yarn@4.0.0-rc.38",
   "engines": {

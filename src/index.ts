@@ -12,35 +12,40 @@ import {
   isGitCredentialValue,
 } from "./model.js"
 
+export type { GitCredential, GitCredentialFillInput } from "./model.js"
+
 export const gitCredentialFill = async (
   input: GitCredentialFillInput,
-  options: { askpass?: string } = {},
+  options: { askpass?: string; cwd?: string } = {},
 ): Promise<GitCredential> => {
   t.assertWithErrors(input, isGitCredentialFillInput)
   const result = await gitCredential(`fill`, input, {
     env: options.askpass ? { GIT_ASKPASS: options.askpass } : undefined,
+    cwd: options.cwd,
   })
   return t.as(result, isGitCredential, { errors: true, throw: true })
 }
 
 export const gitCredentialApprove = async (
   input: GitCredential,
+  options: { cwd?: string } = {},
 ): Promise<void> => {
   t.assertWithErrors(input, isGitCredential)
-  await gitCredential(`approve`, input)
+  await gitCredential(`approve`, input, options)
 }
 
 export const gitCredentialReject = async (
   input: GitCredential,
+  options: { cwd?: string } = {},
 ): Promise<void> => {
   t.assertWithErrors(input, isGitCredential)
-  await gitCredential(`reject`, input)
+  await gitCredential(`reject`, input, options)
 }
 
 const gitCredential = async (
   subcommand: `fill` | `approve` | `reject`,
   inputEntries: Record<string, string>,
-  options: { env?: CommonOptions<string>[`env`] } = {},
+  options: { env?: CommonOptions<string>[`env`]; cwd?: string } = {},
 ): Promise<Record<string, string>> => {
   for (const value of Object.values(inputEntries))
     t.assertWithErrors(value, isGitCredentialValue)
@@ -53,6 +58,7 @@ const gitCredential = async (
 
   const execPromise = execa(`git`, [`credential`, subcommand], {
     env: options.env,
+    cwd: options.cwd,
   })
 
   Readable.from([input]).pipe(execPromise.stdin!)
