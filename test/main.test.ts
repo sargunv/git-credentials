@@ -1,5 +1,6 @@
 import { rm } from "node:fs/promises"
-import { dirname } from "node:path"
+import { dirname, join } from "node:path"
+import { fileURLToPath } from "node:url"
 
 import { execaCommand } from "execa"
 import { temporaryDirectory } from "tempy"
@@ -20,19 +21,22 @@ declare module "vitest" {
 
 beforeEach(async (context) => {
   const home = temporaryDirectory()
-  vi.stubEnv(`HOME`, home)
-  vi.stubEnv(`GIT_CONFIG_NOSYSTEM`, `1`)
-  vi.stubEnv(`GIT_ASKPASS`, ``)
-
-  // add this script's directory to the front of the PATH
-  vi.stubEnv(`PATH`, `${dirname(import.meta.url)}:${process.env.PATH!}`)
-
   const cwd = temporaryDirectory()
-  await execaCommand(`git init`, { cwd })
-  await execaCommand(`git config credential.helper cache`, { cwd })
 
   context.cwd = cwd
   context.home = home
+
+  vi.stubEnv(`HOME`, home)
+  vi.stubEnv(`XDG_CONFIG_HOME`, ``)
+  vi.stubEnv(`GIT_CONFIG_NOSYSTEM`, `1`)
+  vi.stubEnv(`GIT_CONFIG_NOGLOBAL`, `1`)
+  vi.stubEnv(`GIT_CONFIG_SYSTEM`, `/dev/null`)
+  vi.stubEnv(`GIT_CONFIG_GLOBAL`, `/dev/null`)
+  vi.stubEnv(`GIT_ASKPASS`, ``)
+  vi.stubEnv(`GIT_TERMINAL_PROMPT`, ``)
+
+  await execaCommand(`git init`, { cwd })
+  await execaCommand(`git config credential.helper store`, { cwd })
 })
 
 afterEach(async (context) => {
@@ -70,10 +74,7 @@ describe.each([
     `)
 
     await expect(
-      gitCredentialFill(
-        { ...withoutUsername },
-        { cwd, terminalPrompt: `disable` },
-      ),
+      gitCredentialFill({ ...withoutUsername }, { cwd, terminalPrompt: false }),
     ).rejects.toThrowErrorMatchingInlineSnapshot(`
       "Command failed with exit code 128: git credential fill
       fatal: could not read Username for 'https://example.com': terminal prompts disabled"
@@ -83,8 +84,10 @@ describe.each([
   it(`should fill the password with the provided askpass when no password is saved`, async ({
     cwd,
   }) => {
+    const askpass = join(dirname(fileURLToPath(import.meta.url)), `askpass.js`)
+
     await expect(
-      gitCredentialFill({ ...withoutUsername }, { cwd, askpass: `askpass.js` }),
+      gitCredentialFill({ ...withoutUsername }, { cwd, askpass }),
     ).resolves.toEqual({
       protocol: `https`,
       host: `example.com`,
@@ -125,7 +128,6 @@ describe.each([
     cwd,
   }) => {
     await gitCredentialApprove({ ...withUsername, password: `pass` }, { cwd })
-
     await gitCredentialReject({ ...withUsername, password: `pass` }, { cwd })
 
     await expect(

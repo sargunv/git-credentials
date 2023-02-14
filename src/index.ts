@@ -25,7 +25,7 @@ export const gitCredentialFill = async (
   options: {
     cwd?: string
     askpass?: string
-    terminalPrompt?: "disable" | "enable" | "inherit"
+    terminalPrompt?: boolean
   } = {},
 ): Promise<GitCredential> => {
   t.assertWithErrors(input, isGitCredentialFillInput)
@@ -33,9 +33,8 @@ export const gitCredentialFill = async (
   const env: Record<string, string> = {}
 
   if (options.askpass) env.GIT_ASKPASS = options.askpass
-  if (!options.terminalPrompt) env.GIT_TERMINAL_PROMPT = `0`
-  if (options.terminalPrompt === `disable`) env.GIT_TERMINAL_PROMPT = `0`
-  if (options.terminalPrompt === `enable`) env.GIT_TERMINAL_PROMPT = `1`
+  if (options.terminalPrompt) env.GIT_TERMINAL_PROMPT = `1`
+  if (options.terminalPrompt === false) env.GIT_TERMINAL_PROMPT = `0`
 
   const result = await gitCredential(`fill`, input, {
     env,

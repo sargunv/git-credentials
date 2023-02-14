@@ -4,6 +4,10 @@ export default defineConfig({
   test: {
     coverage: {
       include: [`src/**`],
+      reporter: [`text`, `lcov`],
+    },
+    typecheck: {
+      ignoreSourceErrors: true,
     },
   },
 })

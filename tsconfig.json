@@ -4,5 +4,6 @@
     "noEmit": true,
     "module": "node16",
     "moduleResolution": "node16"
-  }
+  },
+  "exclude": ["dist"]
 }
