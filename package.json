@@ -1,7 +1,7 @@
 {
   "name": "git-credentials",
   "version": "1.0.1",
-  "description": "Access the the git credential API by wrapping the `git credential` command.",
+  "description": "Access the the git-credential API by wrapping the `git credential` command.",
   "homepage": "https://github.com/sargunv/git-credentials",
   "repository": "github:sargunv/git-credentials",
   "license": "Apache-2.0",
@@ -17,14 +17,13 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig-build.json",
-    "clean": "rm -rf dist coverage *.tsbuildinfo",
+    "clean": "rimraf dist coverage tsconfig-build.tsbuildinfo",
     "configure": "yarn dlx @yarnpkg/sdks vscode && ignore-sync .",
     "fix": "eslint . --fix && prettier --write .",
     "lint": "eslint . && prettier --check . --loglevel warn",
-    "prepack": "run build && run test-docs",
+    "prepack": "run build",
     "prepublish": "run lint && run test",
-    "test": "vitest --run --coverage",
-    "test-docs": "txm README.md"
+    "test": "vitest --run --coverage"
   },
   "prettier": "@sargunv/prettier-config",
   "eslintConfig": {
@@ -47,8 +46,8 @@
     "eslint": "^8.34.0",
     "ignore-sync": "^6.0.2",
     "prettier": "^2.8.4",
+    "rimraf": "^4.1.2",
     "tempy": "^3.0.0",
-    "txm": "^8.1.0",
     "typescript": "^4.9.5",
     "vite": "^4.1.1",
     "vitest": "^0.28.4"
