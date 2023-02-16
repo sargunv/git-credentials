@@ -32,9 +32,9 @@ export const gitCredentialFill = async (
 
   const env: Record<string, string> = {}
 
-  if (options.askpass) env.GIT_ASKPASS = options.askpass
-  if (options.terminalPrompt) env.GIT_TERMINAL_PROMPT = `1`
-  if (options.terminalPrompt === false) env.GIT_TERMINAL_PROMPT = `0`
+  if (options.askpass) env[`GIT_ASKPASS`] = options.askpass
+  if (options.terminalPrompt) env[`GIT_TERMINAL_PROMPT`] = `1`
+  if (options.terminalPrompt === false) env[`GIT_TERMINAL_PROMPT`] = `0`
 
   const result = await gitCredential(`fill`, input, {
     env,
@@ -91,6 +91,7 @@ const gitCredential = async (
         // use a regex with a capturing group to ensure a single split
         // in case there's an = in the value
         const [key, value] = line.split(/=(.*)/s)
+        if (!key || !value) throw new Error(`Can't parse credential: ${line}`)
         return acc.set(key, value)
       }, new Map<string, string>()),
   )

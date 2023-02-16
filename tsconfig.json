@@ -1,9 +1,7 @@
 {
-  "extends": "@sargunv/typescript-config/node",
+  "extends": "@sargunv/typescript-config/presets/node",
   "compilerOptions": {
-    "noEmit": true,
-    "module": "node16",
-    "moduleResolution": "node16"
+    "noEmit": true
   },
-  "exclude": ["dist"]
+  "exclude": ["dist", "coverage"]
 }
