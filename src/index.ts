@@ -91,7 +91,8 @@ const gitCredential = async (
         // use a regex with a capturing group to ensure a single split
         // in case there's an = in the value
         const [key, value] = line.split(/=(.*)/s)
-        if (!key || !value) throw new Error(`Can't parse credential: ${line}`)
+        if (typeof key !== `string` || typeof value !== `string`)
+          throw new Error(`Can't parse credential: ${line}`)
         return acc.set(key, value)
       }, new Map<string, string>()),
   )
