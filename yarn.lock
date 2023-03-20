@@ -1980,8 +1980,8 @@ __metadata:
   linkType: hard
 
 "execa@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "execa@npm:7.0.0"
+  version: 7.1.1
+  resolution: "execa@npm:7.1.1"
   dependencies:
     cross-spawn: "npm:^7.0.3"
     get-stream: "npm:^6.0.1"
@@ -1992,7 +1992,7 @@ __metadata:
     onetime: "npm:^6.0.0"
     signal-exit: "npm:^3.0.7"
     strip-final-newline: "npm:^3.0.0"
-  checksum: b10a3c635ebef4ab2b71aa009bd73cbdb1edee1f30d8126fb924191d0ff6a5691ede9277d06ab976a41e8fec8605b152fd9314654e60cc38e2d7509002ace28c
+  checksum: 36b171e01b83a88303917916618611b6d83bb9779fac0788d37bba32db92791c2da323605a6a1fa39dcc0c58f220d9f1ace4839481be913ae028a5f390b44a7c
   languageName: node
   linkType: hard
 
