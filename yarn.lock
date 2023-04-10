@@ -613,16 +613,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/coverage-c8@npm:^0.29.2":
-  version: 0.29.2
-  resolution: "@vitest/coverage-c8@npm:0.29.2"
+"@vitest/coverage-c8@npm:^0.30.0":
+  version: 0.30.0
+  resolution: "@vitest/coverage-c8@npm:0.30.0"
   dependencies:
     c8: "npm:^7.13.0"
     picocolors: "npm:^1.0.0"
-    std-env: "npm:^3.3.1"
+    std-env: "npm:^3.3.2"
   peerDependencies:
-    vitest: ">=0.29.0 <1"
-  checksum: 1d1d623faa4693e899a6f557187b78640f22db258407f7a80ca6cdb240445ab8da6f3243c19593a3e9626588f31934a5c4f1e76d68fca1db3575c25f0cd785de
+    vitest: ">=0.30.0 <1"
+  checksum: 2da6aa296d1c3485ab9a171a686bba134fd2488ac26a7fbdd684d0a26f099d08ab5a9e7a2944ea65685845ec2671e541c47e47a2014f68afa2e8fe174d4aae0e
   languageName: node
   linkType: hard
 
@@ -2261,7 +2261,7 @@ __metadata:
     "@sargunv/prettier-config": "npm:^0.2.2"
     "@sargunv/typescript-config": "npm:^0.2.0"
     "@types/node": "npm:^18.13.0"
-    "@vitest/coverage-c8": "npm:^0.29.2"
+    "@vitest/coverage-c8": "npm:^0.30.0"
     eslint: "npm:^8.34.0"
     execa: "npm:^7.0.0"
     ignore-sync: "npm:^6.0.2"
@@ -4397,7 +4397,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"std-env@npm:^3.3.1":
+"std-env@npm:^3.3.1, std-env@npm:^3.3.2":
   version: 3.3.2
   resolution: "std-env@npm:3.3.2"
   checksum: 383486453a3b34c9db54c3aab112e066f32c6afda55c89362fe56576a82564d60526578040f7fe3ff6173f18c426597cbf1be69be9de83f56b984533aa2c2599
