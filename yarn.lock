@@ -471,10 +471,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.13.0":
+"@types/node@npm:*":
   version: 18.14.6
   resolution: "@types/node@npm:18.14.6"
   checksum: 4bbd9fe4cb1b31afe4f76b0b37fe51e46199dc57ab519811f61456cb267d7590323e6c687041f5a73872858d9eb64fdd158e9f669bbb36979d59ec7a91396dfa
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.1.0":
+  version: 20.1.0
+  resolution: "@types/node@npm:20.1.0"
+  checksum: 299fe2b03230b10367862b2b7f4b618671377e20846276f5f435262080d7b01231d45a2b3a08c5de31495fac2eda8048e977aebf06b3c1e26502f74fc021da63
   languageName: node
   linkType: hard
 
@@ -2260,7 +2267,7 @@ __metadata:
     "@sargunv/eslint-config": "npm:^0.5.4"
     "@sargunv/prettier-config": "npm:^0.2.2"
     "@sargunv/typescript-config": "npm:^0.2.0"
-    "@types/node": "npm:^18.13.0"
+    "@types/node": "npm:^20.1.0"
     "@vitest/coverage-c8": "npm:^0.29.2"
     eslint: "npm:^8.34.0"
     execa: "npm:^7.0.0"
